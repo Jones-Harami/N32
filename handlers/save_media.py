@@ -11,6 +11,7 @@ from pyrogram.types import (
 from pyrogram.errors import FloodWait
 from handlers.helpers import get_short_link, str_to_b64
 from handlers.users_api import get_user
+from handlers.send_file import delete_after_delay
 
 def humanbytes(size):
     if not size:
@@ -73,6 +74,7 @@ async def save_batch_media_in_channel(bot: Client, editable: Message, message_id
             ),
             disable_web_page_preview=True
         )
+        asyncio.create_task(delete_after_delay(editable, 300))
         await bot.send_message(
             chat_id=int(Config.LOG_CHANNEL),
             text=f"#BATCH_SAVE:\n\n[{editable.reply_to_message.from_user.first_name}](tg://user?id={editable.reply_to_message.from_user.id}) Got Batch Link!",
@@ -114,6 +116,7 @@ async def save_media_in_channel(bot: Client, editable: Message, message: Message
             ),
             disable_web_page_preview=True
         )
+        asyncio.create_task(delete_after_delay(editable, 300))
     except FloodWait as sl:
         if sl.value > 45:
             print(f"Sleep of {sl.value}s caused by FloodWait ...")
