@@ -80,7 +80,7 @@ class Config(object):
 ╰──➢〔🛡️𝐌𝐚𝐢𝐧 𝐔𝐫𝐥 🛡〕
 ⌬───────╯ ╰───────⌬
 
-<code>{main_url}</code>
+<code>{}</code>
 
 ╭──➢〔🔗 𝐒𝐡𝐨𝐫𝐭 𝐔𝐫𝐥 🔗〕
 │
