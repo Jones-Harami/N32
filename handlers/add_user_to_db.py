@@ -19,14 +19,11 @@ async def only_admin_access(bot: Client, cmd: Message):
     user_id = cmd.from_user.id
 
     # Check if user has admin access and file-saving permission
-    if Config.OTHER_USERS_CAN_SAVE_FILE is False or user_id not in Config.ADMIN:
+    if Config.OTHER_USERS_CAN_SAVE_FILE is False or user_id in Config.ADMIN:
         if Config.OTHER_USERS_CAN_SAVE_FILE is False:
             await cmd.reply_text("You do not have permission to save files.")
             return
-        elif user_id not in Config.ADMIN:
+        elif user_id in Config.ADMIN:
             if Config.LOG_CHANNEL is not None:
-            await bot.send_message(
-                int(Config.LOG_CHANNEL),
-                f"Force_Dtasave \n\nNew datasaver User [{cmd.from_user.first_name}](tg://user?id={cmd.from_user.id}) started @{Config.BOT_USERNAME} !!"
-            )
+            await cmd.reply_text("Here we go again boss.")
             return
