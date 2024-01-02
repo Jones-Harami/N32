@@ -17,13 +17,17 @@ async def add_user_to_database(bot: Client, cmd: Message):
 
 async def only_admin_access(bot: Client, cmd: Message):
     user_id = cmd.from_user.id
-
-    # Check if user has admin access and file-saving permission
-    if Config.OTHER_USERS_CAN_SAVE_FILE is False or user_id in Config.ADMIN:
-        if Config.OTHER_USERS_CAN_SAVE_FILE is False:
-            await cmd.reply_text("You do not have permission to save files.")
+    if Config.OTHER_USERS_CAN_SAVE_FILE is False:
+        if Config.LOG_CHANNEL is not None:
+            await bot.send_message(
+                int(Config.LOG_CHANNEL),
+                f"#NEW_USER: \n\nNew User [{cmd.from_user.first_name}](tg://user?id={cmd.from_user.id}) started @{Config.BOT_USERNAME} !!"
+            )
             return
-        elif user_id in Config.ADMIN:
-            if Config.LOG_CHANNEL is not None:
-            await cmd.reply_text("Here we go again boss.")
+    elif user_id in Config.ADMIN:
+        if Config.LOG_CHANNEL is not None:
+            await bot.send_message(
+                int(Config.LOG_CHANNEL),
+                f"#NEW_USER: \n\nNew User [{cmd.from_user.first_name}](tg://user?id={cmd.from_user.id}) started @{Config.BOT_USERNAME} !!"
+            )
             return
