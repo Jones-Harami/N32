@@ -24,7 +24,7 @@ from pyrogram.types import (
 )
 from configs import Config
 from handlers.database import db
-from handlers.add_user_to_db import add_user_to_database, only_admin_access
+from handlers.add_user_to_db import (add_user_to_database, only_admin_access) 
 from handlers.send_file import send_media_and_reply
 from handlers.helpers import b64_to_str, str_to_b64
 from handlers.check_user_status import handle_user_status
@@ -121,6 +121,8 @@ async def main(bot: Client, message: Message):
             back = await handle_force_sub(bot, message)
             if back == 400:
                 return
+
+        await only_admin_access(bot, message)
 
         if message.from_user.id in Config.BANNED_USERS:
             await message.reply_text("ʏᴏᴜ ᴀʀᴇ ʙᴀɴɴᴇᴅ ᴛᴏ ᴜsᴇ ᴍᴇ\n\n👉🏻 ᴄᴏɴᴛᴀᴄᴛ [𝐃𝐀𝐑𝐊 𝐌𝐀𝐓𝐓𝐄𝐑™](https://t.me/Horne2_EoBot)",
