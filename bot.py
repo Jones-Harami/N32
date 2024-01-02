@@ -131,6 +131,9 @@ async def main(bot: Client, message: Message):
             await message.reply_text("⚠️ʏᴏᴜ ᴅᴏ ɴᴏᴛ ʜᴀᴠᴇ ᴛʜᴇ ᴘᴇʀᴍɪssɪᴏɴ ᴛᴏ ᴛʜɪs ᴀᴄᴛɪᴏɴ")
             return
 
+        if not user["shortener_api"]:
+            return await message.reply_text(f"📡 ғɪʀsᴛ ᴄᴏɴɴᴇᴄᴛ ᴛʜɪs ᴀᴄᴄᴏᴜɴᴛ ᴡɪᴛʜ ʟɪɴᴋ sʜᴏʀᴛɴᴇʀ")
+
         await message.reply_text(
             text="**« 𝐂𝐡𝐨𝐨𝐬𝐞 𝐚𝐧 𝐎𝐩𝐭𝐢𝐨𝐧 𝐭𝐨 𝐔𝐩𝐥𝐨𝐚𝐝 𝐘𝐨𝐮𝐫 𝐅𝐢𝐥𝐞𝐬 »**",
             reply_markup=InlineKeyboardMarkup([
