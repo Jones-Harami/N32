@@ -127,9 +127,6 @@ async def main(bot: Client, message: Message):
                                      disable_web_page_preview=True)
             return
             
-        await only_admin_access(bot, message)
-        return 
-
         if user_id not in Config.ADMIN:
             await message.reply_text("⚠️ʏᴏᴜ ᴅᴏ ɴᴏᴛ ʜᴀᴠᴇ ᴛʜᴇ ᴘᴇʀᴍɪssɪᴏɴ ᴛᴏ ᴛʜɪs ᴀᴄᴛɪᴏɴ")
             return
