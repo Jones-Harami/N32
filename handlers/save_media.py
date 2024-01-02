@@ -66,7 +66,7 @@ async def save_batch_media_in_channel(bot: Client, editable: Message, message_id
         short_url = await get_short_link(user, main_url)
 
         await editable.edit(
-            text=Config.SHORTNER_SUCCESS.format(main_url, short_url),
+            text=Config.SHORTNING_SUCCESS.format(main_url, short_url),
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton("✌🏻ᴏʀɪɢɪɴᴀʟ ʟɪɴᴋ", url=main_url),
                   InlineKeyboardButton("🤏🏻sʜᴏʀᴛ ʟɪɴᴋ", url=short_url)]]
@@ -107,7 +107,7 @@ async def save_media_in_channel(bot: Client, editable: Message, message: Message
         short_url = await get_short_link(user, main_url)
 
         await editable.edit(
-            text=Config.SHORTNER_SUCCESS.format(main_url, short_url),
+            text=Config.SHORTNING_SUCCESS.format(main_url, short_url),
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton("✌🏻ᴏʀɪɢɪɴᴀʟ ʟɪɴᴋ", url=main_url),
                   InlineKeyboardButton("🤏🏻sʜᴏʀᴛ ʟɪɴᴋ", url=short_url)]]
