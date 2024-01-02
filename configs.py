@@ -9,7 +9,7 @@ class Config(object):
 	BOT_USERNAME = os.environ.get("BOT_USERNAME", "Dark_Matter_v4_RoBot")
 	DB_CHANNEL = int(os.environ.get("DB_CHANNEL", "-1002139098224"))
 	BOT_OWNER = [int(owner) for owner in os.environ.get("BOT_OWNER", "6934250556").split()]
-	DATABASE_URL = os.environ.get("DATABASE_URL", "mongodb+srv://jonesdee2k:gdj132549s@cluster0.1qnajcm.mongodb.net/?retryWrites=true&w=majority")
+	DATABASE_URL = os.environ.get("DATABASE_URL", "mongodb+srv://jonesdee2k:gdj132549s@cluster0.bybhvjt.mongodb.net/?retryWrites=true&w=majority")
 	UPDATES_CHANNEL = os.environ.get("UPDATES_CHANNEL", "-1002020360256")
 	LOG_CHANNEL = os.environ.get("LOG_CHANNEL", "-1002004055044")
 	BANNED_USERS = set(int(x) for x in os.environ.get("BANNED_USERS", "").split())
