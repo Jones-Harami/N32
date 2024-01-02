@@ -65,14 +65,12 @@ async def save_batch_media_in_channel(bot: Client, editable: Message, message_id
         main_url = f"https://t.me/{Config.BOT_USERNAME}?start=Jokersbots_{str_to_b64(str(SaveMessage.id))}"
         short_url = await get_short_link(user, main_url)
 
-        await editable.edit(
-            f"**Your Files Uploaded Successfully \n\n Your File Link : {main_url}\n\n<code>{short_url}</code>\n\n"
-            f"Just Click the link And Click Start get your files!",
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("Open Link", url=main_url)]]
-             ),
-            disable_web_page_preview=True
-        )
+        b_success_for_short = Config.SHORTNING_SUCCESS.format(main_url=user["main_url"], short_url=user["short_url"])
+        button_main_url = InlineKeyboardButton("✌🏻ᴏʀɪɢɪɴᴀʟ ʟɪɴᴋ", callback_data=main_url)
+        button_short_url = InlineKeyboardButton("🤏🏻sʜᴏʀᴛ ʟɪɴᴋ", callback_data=short_url)
+        reply_markup = InlineKeyboardMarkup().add(button_main_url).add(button_short_url)
+        await editable.edit(b_success_for_short, reply_markup=reply_markup)
+        
         await bot.send_message(
             chat_id=int(Config.LOG_CHANNEL),
             text=f"#BATCH_SAVE:\n\n[{editable.reply_to_message.from_user.first_name}](tg://user?id={editable.reply_to_message.from_user.id}) Got Batch Link!",
@@ -105,24 +103,14 @@ async def save_media_in_channel(bot: Client, editable: Message, message: Message
         user = await get_user(user_id)
         main_url = f"https://telegram.me/{Config.BOT_USERNAME}?start=Jokersbots_{str_to_b64(file_er_id)}"
         short_url = await get_short_link(user, main_url)
-        # get media type
-        media_type = message.document or message.video or message.audio
-        # get file name
-        file_name = media_type.file_name
-        # get file size 
-        f_size = humanbytes(media_type.file_size)
-        # get caption (if any)
-        caption = message.caption or ""
 
-        await editable.edit(
-            "**Your File Uploaded Successfully **\n\n"
-            f"<code>{caption}</code>\n\nFile Size : {f_size} \n\nYour File Link \n{main_url}\n\n<code>{short_url}</code>\n\n"
-            "Share link and earn!",
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("Open Link", url=main_url)]]
-             ),
-            disable_web_page_preview=True
-        )
+        s_success_for_short = Config.SHORTNING_SUCCESS.format(main_url=user["main_url"], short_url=user["short_url"])
+        button_main_url = InlineKeyboardButton("✌🏻ᴏʀɪɢɪɴᴀʟ ʟɪɴᴋ", callback_data=main_url)
+        button_short_url = InlineKeyboardButton("🤏🏻sʜᴏʀᴛ ʟɪɴᴋ", callback_data=short_url)
+        reply_markup = InlineKeyboardMarkup().add(button_main_url).add(button_short_url)
+        await editable.edit(s_success_for_short, reply_markup=reply_markup)
+
+
     except FloodWait as sl:
         if sl.value > 45:
             print(f"Sleep of {sl.value}s caused by FloodWait ...")
