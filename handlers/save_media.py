@@ -65,7 +65,7 @@ async def save_batch_media_in_channel(bot: Client, editable: Message, message_id
         main_url = f"https://t.me/{Config.BOT_USERNAME}?start=Jokersbots_{str_to_b64(str(SaveMessage.id))}"
         short_url = await get_short_link(user, main_url)
 
-        b_success_for_short = Config.SHORTNING_SUCCESS.format(main_url=main_url, short_url=short_url)
+        b_success_for_short = Config.SHORTNING_SUCCESS.format({main_url}, {short_url})
         button_main_url = InlineKeyboardButton("✌🏻ᴏʀɪɢɪɴᴀʟ ʟɪɴᴋ", callback_data=main_url)
         button_short_url = InlineKeyboardButton("🤏🏻sʜᴏʀᴛ ʟɪɴᴋ", callback_data=short_url)
         reply_markup = InlineKeyboardMarkup().add(button_main_url).add(button_short_url)
@@ -104,7 +104,7 @@ async def save_media_in_channel(bot: Client, editable: Message, message: Message
         main_url = f"https://telegram.me/{Config.BOT_USERNAME}?start=Jokersbots_{str_to_b64(file_er_id)}"
         short_url = await get_short_link(user, main_url)
 
-        s_success_for_short = Config.SHORTNING_SUCCESS.format(main_url=main_url, short_url=short_url)
+        s_success_for_short = Config.SHORTNING_SUCCESS.format({main_url}, {short_url})
         button_main_url = InlineKeyboardButton("✌🏻ᴏʀɪɢɪɴᴀʟ ʟɪɴᴋ", callback_data=main_url)
         button_short_url = InlineKeyboardButton("🤏🏻sʜᴏʀᴛ ʟɪɴᴋ", callback_data=short_url)
         reply_markup = InlineKeyboardMarkup().add(button_main_url).add(button_short_url)
