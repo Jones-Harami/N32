@@ -28,7 +28,10 @@ from handlers.add_user_to_db import (
     add_user_to_database, 
     only_admin_access
 ) 
-from handlers.send_file import send_media_and_reply
+from handlers.send_file import (
+    send_media_and_reply,
+    delete_after_delay
+)
 from handlers.helpers import b64_to_str, str_to_b64
 from handlers.check_user_status import handle_user_status
 from handlers.force_sub_handler import (
@@ -143,6 +146,7 @@ async def main(bot: Client, message: Message):
             quote=True,
             disable_web_page_preview=True
         )
+        asyncio.create_task(delete_after_delay(message, 300))
     elif message.chat.type == enums.ChatType.CHANNEL:
         if (message.chat.id == int(Config.LOG_CHANNEL)) or (message.chat.id == int(Config.UPDATES_CHANNEL)) or message.forward_from_chat or message.forward_from:
             return
@@ -180,7 +184,7 @@ async def main(bot: Client, message: Message):
                 text=f"#ERROR_TRACEBACK:\nGot Error from `{str(message.chat.id)}` !!\n\n**Traceback:** `{err}`",
                 disable_web_page_preview=True
             )
-@Bot.on_message(filters.command('shortener') & filters.private)
+@Bot.on_message(filters.command('shortener') & filters.private & filters.user(Config.BOT_OWNER))
 async def shortener_api_handler(bot, m: Message):
     user_id = m.from_user.id
     user = await get_user(user_id)
