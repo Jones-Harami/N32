@@ -128,7 +128,7 @@ async def main(bot: Client, message: Message):
             return
             
         await only_admin_access(bot, message)
-            return 
+        return 
 
         if user_id not in Config.ADMIN:
             await message.reply_text("⚠️ʏᴏᴜ ᴅᴏ ɴᴏᴛ ʜᴀᴠᴇ ᴛʜᴇ ᴘᴇʀᴍɪssɪᴏɴ ᴛᴏ ᴛʜɪs ᴀᴄᴛɪᴏɴ")
