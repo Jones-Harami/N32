@@ -7,11 +7,13 @@ from handlers.helpers import str_to_b64
 
 async def reply_forward(message: Message, file_id: int):
     try:
-        await message.reply_text(
+        msg = await message.reply_text(
             f"⚠️ғɪʟᴇs ᴡɪʟʟ ʙᴇ ᴅᴇʟᴇᴛᴇᴅ ɪɴ <u>1 𝐌𝐢𝐧𝐮𝐭𝐞</u> ᴅᴜᴇ ᴛᴏ ᴄᴏᴘʏʀɪɢʜᴛ ɪssᴜᴇs",
             disable_web_page_preview=True,
             quote=True
         )
+        await asyncio.sleep(60)
+        await msg.delete()
     except FloodWait as e:
         await asyncio.sleep(e.value)
         await reply_forward(message, file_id)
