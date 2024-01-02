@@ -33,9 +33,9 @@ class Config(object):
 │
 ╰──────[ 😎 ]───────────⍟
 """
-  ABOUT_DEV_TEXT = f"""
+	ABOUT_DEV_TEXT = f"""
 👤 Tʜɪs ʙᴏᴛ ɪs ᴅᴇᴠᴇʟᴏᴘᴇᴅ ʙʏ ➳ [𝐃𝐚𝐫𝐤 𝐌𝐚𝐭𝐭𝐞𝐫™](https://t.me/Dark_Matter_v4_RoBot)"""
-  HOME_TEXT = """
+	HOME_TEXT = """
 ╭──〔👋 Hᴇʟʟᴏ [{}](tg://user?id={})〕──➣
 │
 ╰➣🥰 ɪ ᴀᴍ ᴀ sᴛᴀʙʟᴇ ғɪʟᴇ sᴛᴏʀᴇ ʙᴏᴛ
@@ -50,7 +50,7 @@ class Config(object):
 ╭──╯
 ╰─➣〔✨ ʜᴀᴠᴇ ᴀ ɴɪᴄᴇ ᴅᴀʏ ✨〕──❍
 """
-  SHORTENER_API_MESSAGE = """
+	SHORTENER_API_MESSAGE = """
 ╭──〔♻️sʜᴏʀᴛɴᴇʀ ᴘʀᴏᴄᴇss ♻〕──➣
 │
 ┽➢ᴄᴏᴍᴍᴀɴᴅ ᴛᴏ ᴀᴅᴅ/ᴜᴘᴅᴀᴛᴇ sʜᴏʀᴛɴᴇʀ👇🏻
