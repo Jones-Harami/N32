@@ -124,9 +124,7 @@ async def main(bot: Client, message: Message):
             back = await handle_force_sub(bot, message)
             if back == 400:
                 return
-
-        await only_admin_access(bot, message)
-
+        
         if message.from_user.id in Config.BANNED_USERS:
             await message.reply_text("ʏᴏᴜ ᴀʀᴇ ʙᴀɴɴᴇᴅ ᴛᴏ ᴜsᴇ ᴍᴇ\n\n👉🏻 ᴄᴏɴᴛᴀᴄᴛ [𝐃𝐀𝐑𝐊 𝐌𝐀𝐓𝐓𝐄𝐑™](https://t.me/Horne2_EoBot)",
                                      disable_web_page_preview=True)
