@@ -87,8 +87,7 @@ async def start(bot: Client, cmd: Message):
                 InlineKeyboardButton("✖sʟᴇᴇᴘ ᴍᴏᴅᴇ ✖", callback_data="closeMessage")
                 ]]
             )
-          )
-        asyncio.create_task(delete_after_delay(cmd, 1800)
+        )
     else:
         try:
             try:
