@@ -184,7 +184,7 @@ async def main(bot: Client, message: Message):
                 text=f"#ERROR_TRACEBACK:\nGot Error from `{str(message.chat.id)}` !!\n\n**Traceback:** `{err}`",
                 disable_web_page_preview=True
             )
-@Bot.on_message(filters.command('shortener') & filters.private & filters.user(Config.BOT_OWNER))
+@Bot.on_message(filters.command('shortener') & filters.private & filters.user(Config.ADMIN))
 async def shortener_api_handler(bot, m: Message):
     user_id = m.from_user.id
     user = await get_user(user_id)
