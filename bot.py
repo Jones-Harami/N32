@@ -88,6 +88,7 @@ async def start(bot: Client, cmd: Message):
                 ]]
             )
           )
+        asyncio.create_task(delete_after_delay(cmd, 1800)
     else:
         try:
             try:
