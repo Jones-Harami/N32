@@ -70,7 +70,10 @@ async def save_batch_media_in_channel(bot: Client, editable: Message, message_id
             text=Config.SHORTNING_SUCCESS.format(main_url, short_url),
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton("✌🏻ᴏʀɪɢɪɴᴀʟ ʟɪɴᴋ", url=main_url),
-                  InlineKeyboardButton("🤏🏻sʜᴏʀᴛ ʟɪɴᴋ", url=short_url)]]
+                  InlineKeyboardButton("🤏🏻sʜᴏʀᴛ ʟɪɴᴋ", url=short_url)
+                 ],[
+                    InlineKeyboardButton("Close", callback_data="closeMessage")
+                ]]
             ),
             disable_web_page_preview=True
         )
@@ -112,7 +115,10 @@ async def save_media_in_channel(bot: Client, editable: Message, message: Message
             text=Config.SHORTNING_SUCCESS.format(main_url, short_url),
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton("✌🏻ᴏʀɪɢɪɴᴀʟ ʟɪɴᴋ", url=main_url),
-                  InlineKeyboardButton("🤏🏻sʜᴏʀᴛ ʟɪɴᴋ", url=short_url)]]
+                  InlineKeyboardButton("🤏🏻sʜᴏʀᴛ ʟɪɴᴋ", url=short_url)
+                 ],[
+                    InlineKeyboardButton("Close", callback_data="closeMessage")
+                ]]
             ),
             disable_web_page_preview=True
         )
