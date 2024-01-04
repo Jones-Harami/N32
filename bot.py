@@ -451,19 +451,6 @@ async def button(bot: Client, cmd: CallbackQuery):
                                ]))
 
     elif "addToBatchFalse" in cb_data:
-        await cmd.message.edit("🚀ʜᴇʀᴇ ᴡᴇ ɢᴏ....")
-        await asyncio.sleep(1)
-        await cmd.message.edit(
-            text="▣❑❑"
-        )
-        await asyncio.sleep(0.1)
-        await cmd.message.edit(
-            text="▣▣❑"
-        )
-        await asyncio.sleep(0.2)
-        await cmd.message.edit(
-            text="▣▣▣"
-        )
         await save_media_in_channel(bot, editable=cmd.message, message=cmd.message.reply_to_message)
 
     elif "getBatchLink" in cb_data:
@@ -471,19 +458,6 @@ async def button(bot: Client, cmd: CallbackQuery):
         if message_ids is None:
             await cmd.answer("Batch List Empty!", show_alert=True)
             return
-        await cmd.message.edit("Please wait....\n\n Your Files Downloding 📥")
-        await asyncio.sleep(1)
-        await cmd.message.edit(
-            text="▣❑❑"
-        )
-        await asyncio.sleep(0.1)
-        await cmd.message.edit(
-            text="▣▣❑"
-        )
-        await asyncio.sleep(0.2)
-        await cmd.message.edit(
-            text="▣▣▣"
-        )
         await save_batch_media_in_channel(bot=bot, editable=cmd.message, message_ids=message_ids, cmd=cmd)
         MediaList[f"{str(cmd.from_user.id)}"] = []
 
